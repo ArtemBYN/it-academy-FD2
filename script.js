@@ -54,7 +54,7 @@ let value = false;
 
 let publicField = form.elements.public;
 for (let i = 0; i < publicField.length; i++) {
-    publicField[i].addEventListener('change', validPublic, false);
+  publicField[i].addEventListener('change', validPublic, false);
 }
 
 let publicRow = document.getElementById('publicRow');
@@ -79,167 +79,166 @@ articleRow.appendChild(newArticleRow);
 form.addEventListener('submit', validateInfoForm, false);
 
 function validAuthor(EO) {
-    EO = EO || window.event;
+  EO = EO || window.event;
 
-    if (!authorField.value) {
-        newAuthorRow.textContent = ' Вы не ввели Разработчиков!';
-    } else newAuthorRow.textContent = null;
+  if (!authorField.value) {
+    newAuthorRow.textContent = ' Вы не ввели Разработчиков!';
+  } else newAuthorRow.textContent = null;
 }
 
 function validSite(EO) {
-    EO = EO || window.event;
-    if (!titleSiteField.value) {
-        newSiteRow.textContent = ' Вы не ввели Название сайта!';
-    } else if (titleSiteField.value.length > 30) {
-        newSiteRow.textContent = ' Слишком длинное название!';
-    } else newSiteRow.textContent = null;
+  EO = EO || window.event;
+  if (!titleSiteField.value) {
+    newSiteRow.textContent = ' Вы не ввели Название сайта!';
+  } else if (titleSiteField.value.length > 30) {
+    newSiteRow.textContent = ' Слишком длинное название!';
+  } else newSiteRow.textContent = null;
 
 }
 
 function validUrl(EO) {
-    EO = EO || window.event;
-    if (!urlSiteField.value) {
-        newUrlRow.textContent = ' Вы не ввели URL сайта!';
-    } else newUrlRow.textContent = null;
+  EO = EO || window.event;
+  if (!urlSiteField.value) {
+    newUrlRow.textContent = ' Вы не ввели URL сайта!';
+  } else newUrlRow.textContent = null;
 }
 
 function validDate(EO) {
-    EO = EO || window.event;
-    if (!startDateField.value) {
-        newDateRow.textContent = ' Вы не ввели дату!';
-    } else newDateRow.textContent = null;
+  EO = EO || window.event;
+  if (!startDateField.value) {
+    newDateRow.textContent = ' Вы не ввели дату!';
+  } else newDateRow.textContent = null;
 }
 
 function validPersons(EO) {
-    EO = EO || window.event;
-    if (!parseInt(personsField.value.trim())) {
-        newPersonsRow.textContent = ' Вы не ввели количество посетителей!';
-    } else newPersonsRow.textContent = null;
+  EO = EO || window.event;
+  if (!parseInt(personsField.value.trim())) {
+    newPersonsRow.textContent = ' Вы не ввели количество посетителей!';
+  } else newPersonsRow.textContent = null;
 }
 
 function validMail(EO) {
-    EO = EO || window.event;
-    if (!mailField.value) {
-        newMailRow.textContent = ' Вы не ввели E-mail!';
-    } else newMailRow.textContent = null;
+  EO = EO || window.event;
+  if (!mailField.value) {
+    newMailRow.textContent = ' Вы не ввели E-mail!';
+  } else newMailRow.textContent = null;
 }
 
 function validRubric(EO) {
-    EO = EO || window.event;
-    value = true;
-    if (rubricField.value == 3) {
-        newRubricRow.textContent = ' Эта рубрика недоступна!';
+  EO = EO || window.event;
+  value = true;
+  if (rubricField.value == 3) {
+    newRubricRow.textContent = ' Эта рубрика недоступна!';
 
-    } else {
-        newRubricRow.textContent = null;
+  } else {
+    newRubricRow.textContent = null;
 
-    }
+  }
 }
 
 function validPublic(EO) {
-    EO = EO || window.event;
-    if (publicField.value === '') {
-        newPublicRow.textContent = ' Размещение не выбрано!';
-    } else newPublicRow.textContent = null;
+  EO = EO || window.event;
+  if (publicField.value === '') {
+    newPublicRow.textContent = ' Размещение не выбрано!';
+  } else newPublicRow.textContent = null;
 }
 
 function validComments(EO) {
-    EO = EO || window.event;
-    if (!commentsField.checked) {
-        newCommentsRow.textContent = ' Пустое поле!';
-    } else newCommentsRow.textContent = null;
+  EO = EO || window.event;
+  if (!commentsField.checked) {
+    newCommentsRow.textContent = ' Пустое поле!';
+  } else newCommentsRow.textContent = null;
 }
 
 function validArticle(EO) {
-    EO = EO || window.event;
-    if (!articleField.value) {
-        newArticleRow.textContent = ' Нет описания сайта!';
-    } else newArticleRow.textContent = null;
+  EO = EO || window.event;
+  if (!articleField.value) {
+    newArticleRow.textContent = ' Нет описания сайта!';
+  } else newArticleRow.textContent = null;
 }
 
 function validateInfoForm(EO) {
-    EO = EO || window.event;
-    validAuthor();
-    validSite();
-    validUrl();
-    validDate();
-    validPersons();
-    validMail();
+  EO = EO || window.event;
+  validAuthor();
+  validSite();
+  validUrl();
+  validDate();
+  validPersons();
+  validMail();
 
-    validComments();
-    validArticle();
-    validPublic();
+  validComments();
+  validArticle();
+  validPublic();
 
-    if (value === false) {
-        newRubricRow.textContent = ' Выберите рубрику!';
+  if (value === false) {
+    newRubricRow.textContent = ' Выберите рубрику!';
+  }
+
+
+  try {
+
+
+    if (newAuthorRow.textContent) {
+      authorField.focus();
+      EO.preventDefault();
+      return;
     }
 
-    
-    try {
-
-
-        if (newAuthorRow.textContent) {
-            authorField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-        if (newSiteRow.textContent) {
-            titleSiteField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-        if (newUrlRow.textContent) {
-            urlSiteField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-        if (newDateRow.textContent) {
-            startDateField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-        if (newPersonsRow.textContent) {
-            personsField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-        if (newMailRow.textContent) {
-            mailField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-        if (newRubricRow.textContent) {
-            rubricField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-        if (newPublicRow.textContent) {
-            document.getElementById('public1').scrollIntoView();
-            EO.preventDefault();
-            return;
-        } else newPublicRow.textContent = null;
-
-        if (newCommentsRow.textContent) {
-            commentsField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-        if (newArticleRow.textContent) {
-            articleField.focus();
-            EO.preventDefault();
-            return;
-        }
-
-
-    } catch (ex) {
-        EO.preventDefault();
+    if (newSiteRow.textContent) {
+      titleSiteField.focus();
+      EO.preventDefault();
+      return;
     }
+
+    if (newUrlRow.textContent) {
+      urlSiteField.focus();
+      EO.preventDefault();
+      return;
+    }
+
+    if (newDateRow.textContent) {
+      startDateField.focus();
+      EO.preventDefault();
+      return;
+    }
+
+    if (newPersonsRow.textContent) {
+      personsField.focus();
+      EO.preventDefault();
+      return;
+    }
+
+    if (newMailRow.textContent) {
+      mailField.focus();
+      EO.preventDefault();
+      return;
+    }
+
+    if (newRubricRow.textContent) {
+      rubricField.focus();
+      EO.preventDefault();
+      return;
+    }
+
+    if (newPublicRow.textContent) {
+      document.getElementById('public1').scrollIntoView();
+      EO.preventDefault();
+      return;
+    } else newPublicRow.textContent = null;
+
+    if (newCommentsRow.textContent) {
+      commentsField.focus();
+      EO.preventDefault();
+      return;
+    }
+
+    if (newArticleRow.textContent) {
+      articleField.focus();
+      EO.preventDefault();
+      return;
+    }
+
+  } catch (ex) {
+    EO.preventDefault();
+  }
 }
